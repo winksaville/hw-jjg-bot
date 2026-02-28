@@ -39,3 +39,23 @@ jj commit -m "title" -m "body" -R .claude
 - `jj describe -m "title" -m "body" -R <repo>` — set description without committing
 - In jj, the working copy (@) is always a mutable commit being edited.
   `jj commit` finalizes it and creates a new empty working copy on top.
+- The `.claude` repo always has uncommitted changes during an active
+  session because session data updates continuously.
+
+## Session End Workflows
+
+When the user asks to "commit both repos" or says they're done, commit
+both repos. The app repo commit should summarize any code changes; the
+bot session repo commit should note what was done in the session.
+
+```
+jj commit -m "title" -m "body" -R .
+jj commit -m "title" -m "body" -R .claude
+```
+
+When the user also asks to push, push both repos after committing.
+
+```
+jj git push -R .
+jj git push -R .claude
+```
