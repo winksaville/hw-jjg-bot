@@ -45,17 +45,22 @@ jj commit -m "title" -m "body" -R .claude
 ## Session End Workflows
 
 When the user asks to "commit both repos" or says they're done, commit
-both repos. The app repo commit should summarize any code changes; the
-bot session repo commit should note what was done in the session.
+both repos. Use the **same title** for both commits so they're easy to
+correlate. The body can differ: the app repo body should summarize code
+changes; the bot session repo body should note what was done in the
+session.
 
 ```
-jj commit -m "title" -m "body" -R .
-jj commit -m "title" -m "body" -R .claude
+jj commit -m "shared title" -m "app body" -R .
+jj commit -m "shared title" -m "session body" -R .claude
 ```
 
-When the user also asks to push, push both repos after committing.
+When the user also asks to push, advance the `main` bookmarks to the
+new commits first, then push.
 
 ```
+jj bookmark set main -r @- -R .
+jj bookmark set main -r @- -R .claude
 jj git push -R .
 jj git push -R .claude
 ```
