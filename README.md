@@ -45,7 +45,7 @@ $ cp ~/data/prgs/licenses/LICENSE-MIT .
 wink@fwlaptop 26-02-28T18:10:00.578Z:~/data/prgs/rust/hw-jjg-bot (main)
 $ printf '/target\n/.claude\n/.git\n/.jj\n' > .gitignore
 wink@fwlaptop 26-02-28T18:30:55.433Z:~/data/prgs/rust/hw-jjg-bot (main)
-$ printf '/.git\n/.jj\n' > .gitignore
+$ printf '/.git\n/.jj\n' > .claude/.gitignore
 wink@fwlaptop 26-02-28T18:30:59.193Z:~/data/prgs/rust/hw-jjg-bot (main)
 $ jj st
 Working copy changes:
